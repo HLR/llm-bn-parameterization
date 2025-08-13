@@ -4,7 +4,7 @@ This repository accompanies the paper:
 “Extracting Probabilistic Knowledge from Large Language Models for Bayesian Network Parameterization”
 We evaluate the ability of modern LLMs to estimate conditional probability tables for Bayesian Networks and introduce Expert-Driven Priors (EDP): a pseudocount fusion that combines LLM-derived priors with data to improve parameter estimation, especially under data scarcity.
 
-![Alt text](Figures/intro.png "SepState (Left Panel): For each parent configuration, the LLM is prompted with natural‑language descriptions of the node and its parents and queried once per state. The answers are subsequently normalized into a valid conditional distribution, e.g., (75%, 25%). EDP (Right Panel): The LLM‑derived prior distribution is translated into pseudocounts and fused with empirical counts (C) to give the posterior estimates. This treats the LLM as a probabilistic expert whose influence is controlled by a hyper‑parameter.")
+![Alt text](Figures/Intro.png 'SepState (Left Panel): For each parent configuration, the LLM is prompted with natural‑language descriptions of the node and its parents and queried once per state. The answers are subsequently normalized into a valid conditional distribution, e.g., (75%, 25%). EDP (Right Panel): The LLM‑derived prior distribution is translated into pseudocounts and fused with empirical counts (C) to give the posterior estimates. This treats the LLM as a probabilistic expert whose influence is controlled by a hyper‑parameter.')
 
 ## Requirements
 
