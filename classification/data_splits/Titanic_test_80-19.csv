@@ -1,0 +1,8 @@
+Class,Sex,Age,Survived,Freq
+3rd,male,adult,no,387.0
+crew,female,child,no,0.0
+1st,female,adult,no,4.0
+2nd,male,child,yes,11.0
+crew,female,child,yes,0.0
+crew,male,child,no,0.0
+1st,female,child,yes,1.0

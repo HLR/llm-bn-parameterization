@@ -1,0 +1,392 @@
+network unknown {
+}
+variable AcuteToxicityDermalExposure {
+  type discrete [ 6 ] { Less than 50, 50-200, 200-1000, 1000-2000, 2000-5000, No effect };
+}
+variable AcuteToxicityExposureByDustInhalation {
+  type discrete [ 5 ] { Less than 0.5, 0.5-2, 2-10, 10-20, No effect };
+}
+variable AcuteToxicityExposureByGasInhalation {
+  type discrete [ 5 ] { Less than 100, 100-500, 500-2500, 2500-20000, No effect };
+}
+variable AdministrativeMeasures {
+  type discrete [ 3 ] { High, Medium, Low };
+}
+variable AerosolFormation {
+  type discrete [ 2 ] { With, Without };
+}
+variable Agglomeration {
+  type discrete [ 2 ] { With, Without };
+}
+variable Amount {
+  type discrete [ 3 ] { <10mg, 10-100mg, >100mg };
+}
+variable BodyProtection {
+  type discrete [ 4 ] { No use, Cotton lab coats, Synthetic material lab coats, Chemical protection coveralls };
+}
+variable ChronicToxicityByTheExposureRouteInhalationDust {
+  type discrete [ 5 ] { Less than 0.5, 0.5-2, 2-10, 10-20, No effect };
+}
+variable ChronicToxicityByTheExposureRouteInhalationGas {
+  type discrete [ 3 ] { Less than 50, 50-200, No effect };
+}
+variable ChronicToxicityDermalExposure {
+  type discrete [ 3 ] { Less than 20, 20-200, No effect };
+}
+variable ChronicToxicityExposureByDustInhalation {
+  type discrete [ 3 ] { Less than 0.02, 0.02-0.2, No effect };
+}
+variable ChronicToxicityInTheAquaticEnvironment {
+  type discrete [ 4 ] { Less than 0.01, 0.01-0.1, 0.1-1, No effect };
+}
+variable ClassificationGHS {
+  type discrete [ 5 ] { 1, 2, 3, 4, 5 };
+}
+variable CrystallineStructure {
+  type discrete [ 2 ] { With, Without };
+}
+variable Duration {
+  type discrete [ 3 ] { <30min, 30-240min, >240min };
+}
+variable DustFormation {
+  type discrete [ 2 ] { With, Without };
+}
+variable Exposure {
+  type discrete [ 3 ] { High, Medium, Low };
+}
+variable EyeIrritation {
+  type discrete [ 3 ] { No effect, Reversible irritation, Irreversible damage };
+}
+variable EyesProtection {
+  type discrete [ 4 ] { No use, Safety glasses, Safety goggles, Face shields };
+}
+variable FootProtection {
+  type discrete [ 3 ] { Open shoes, Work shoes, Safety shoes for chemical agents };
+}
+variable Frequency {
+  type discrete [ 5 ] { Daily, Weekly, Monthly, Semiannual, Yearly };
+}
+variable HandProtection {
+  type discrete [ 4 ] { No use, Rubber gloves, Nitrile gloves - 1 pair, Nitrile gloves - 2 pairs };
+}
+variable Hazard {
+  type discrete [ 3 ] { High, Medium, Low };
+}
+variable MedicalSurveillance {
+  type discrete [ 3 ] { No, Yes, Yes_ consider NMs };
+}
+variable Morphology {
+  type discrete [ 3 ] { Spherical, Plates, Rods };
+}
+variable OccupationalEnvironmentRiskProgram {
+  type discrete [ 3 ] { No, Yes, Yes_ consider NMs };
+}
+variable PeriodicMaintenanceOfCPE {
+  type discrete [ 3 ] { No, Yes_ less than 12 months, Yes_ more than 12 months };
+}
+variable PersonalProtectiveEquipment {
+  type discrete [ 3 ] { High, Medium, Low };
+}
+variable PotentiallyCarcinogenic {
+  type discrete [ 3 ] { Confirmed for humans, Possibly toxic to humans, No effect };
+}
+variable ProtectionByUsingCollectiveProtectiveEquipment {
+  type discrete [ 4 ] { Full containment/isolation, Enclosed ventilation, Local ventilation, General mechanical ventilation };
+}
+variable RespiratoryProtection {
+  type discrete [ 3 ] { No use, Safety mask without selection criteria, Respiratory mask according to the respiratory protection program };
+}
+variable RespiratoryProtectionProgram {
+  type discrete [ 3 ] { No, Yes, Yes_ consider NMs };
+}
+variable RespiratorySensitization {
+  type discrete [ 3 ] { There is evidence for humans, There are positive tests for animal testing, No effect };
+}
+variable Risk {
+  type discrete [ 3 ] { High, Medium, Low };
+}
+variable RiskControl {
+  type discrete [ 3 ] { High, Medium, Low };
+}
+variable RiskTrainingInvolvingNMs {
+  type discrete [ 2 ] { No, Yes };
+}
+variable SizeOfAtLeastOneDimension {
+  type discrete [ 2 ] { Less than 100, More than 100 };
+}
+variable SkinIrritation {
+  type discrete [ 4 ] { Skin corrosion, Skin irritation, ILskin irritation, No effect };
+}
+variable SolubilityInWater {
+  type discrete [ 2 ] { Dissolution pH 5 to 9, Insoluble };
+}
+variable StandardOperatingProcedureOfTask {
+  type discrete [ 2 ] { No, Yes };
+}
+variable SurfaceArea {
+  type discrete [ 3 ] { < 10 m2g, 10-49 m2g, >50 m2g };
+}
+variable SurfaceChargeInSolution {
+  type discrete [ 2 ] { Charged, Neutral };
+}
+variable SurfaceModificationWithHydrophilicGroups {
+  type discrete [ 2 ] { Without, With };
+}
+variable SuspensionStability {
+  type discrete [ 2 ] { Less than 30, More than 30 };
+}
+variable VariablesPhysicoChemical {
+  type discrete [ 3 ] { High, Medium, Low };
+}
+probability ( AcuteToxicityDermalExposure | ClassificationGHS ) {
+  (1) 0.40, 0.15, 0.15, 0.10, 0.10, 0.10;
+  (2) 0.15, 0.40, 0.15, 0.10, 0.10, 0.10;
+  (3) 0.10, 0.15, 0.40, 0.15, 0.10, 0.10;
+  (4) 0.10, 0.10, 0.10, 0.40, 0.15, 0.15;
+  (5) 0.10, 0.10, 0.10, 0.15, 0.40, 0.15;
+}
+probability ( AcuteToxicityExposureByDustInhalation | ClassificationGHS ) {
+  (1) 0.4, 0.2, 0.2, 0.1, 0.1;
+  (2) 0.2, 0.4, 0.2, 0.1, 0.1;
+  (3) 0.1, 0.2, 0.4, 0.2, 0.1;
+  (4) 0.1, 0.1, 0.2, 0.4, 0.2;
+  (5) 0.1, 0.1, 0.2, 0.2, 0.4;
+}
+probability ( AcuteToxicityExposureByGasInhalation | ClassificationGHS ) {
+  (1) 0.4, 0.2, 0.2, 0.1, 0.1;
+  (2) 0.2, 0.4, 0.2, 0.1, 0.1;
+  (3) 0.1, 0.2, 0.4, 0.2, 0.1;
+  (4) 0.1, 0.1, 0.2, 0.4, 0.2;
+  (5) 0.1, 0.1, 0.2, 0.2, 0.4;
+}
+probability ( AdministrativeMeasures | RiskControl ) {
+  (High) 0.2, 0.3, 0.5;
+  (Medium) 0.3, 0.4, 0.3;
+  (Low) 0.5, 0.3, 0.2;
+}
+probability ( AerosolFormation | Exposure ) {
+  (High) 0.8, 0.2;
+  (Medium) 0.6, 0.4;
+  (Low) 0.4, 0.6;
+}
+probability ( Agglomeration | VariablesPhysicoChemical ) {
+  (High) 0.4, 0.6;
+  (Medium) 0.45, 0.55;
+  (Low) 0.6, 0.4;
+}
+probability ( Amount | Exposure ) {
+  (High) 0.2, 0.3, 0.5;
+  (Medium) 0.3, 0.4, 0.3;
+  (Low) 0.5, 0.3, 0.2;
+}
+probability ( BodyProtection | PersonalProtectiveEquipment ) {
+  (High) 0.1, 0.2, 0.3, 0.4;
+  (Medium) 0.15, 0.30, 0.35, 0.20;
+  (Low) 0.4, 0.3, 0.2, 0.1;
+}
+probability ( ChronicToxicityByTheExposureRouteInhalationDust | ClassificationGHS ) {
+  (1) 0.4, 0.2, 0.2, 0.1, 0.1;
+  (2) 0.2, 0.4, 0.2, 0.1, 0.1;
+  (3) 0.1, 0.2, 0.4, 0.2, 0.1;
+  (4) 0.1, 0.1, 0.2, 0.4, 0.2;
+  (5) 0.1, 0.1, 0.2, 0.2, 0.4;
+}
+probability ( ChronicToxicityByTheExposureRouteInhalationGas | ClassificationGHS ) {
+  (1) 0.45, 0.35, 0.20;
+  (2) 0.35, 0.45, 0.20;
+  (3) 0.35, 0.35, 0.30;
+  (4) 0.3, 0.3, 0.4;
+  (5) 0.20, 0.35, 0.45;
+}
+probability ( ChronicToxicityDermalExposure | ClassificationGHS ) {
+  (1) 0.45, 0.35, 0.20;
+  (2) 0.35, 0.45, 0.20;
+  (3) 0.35, 0.35, 0.30;
+  (4) 0.3, 0.3, 0.4;
+  (5) 0.20, 0.35, 0.45;
+}
+probability ( ChronicToxicityExposureByDustInhalation | ClassificationGHS ) {
+  (1) 0.45, 0.35, 0.20;
+  (2) 0.35, 0.45, 0.20;
+  (3) 0.35, 0.35, 0.30;
+  (4) 0.3, 0.3, 0.4;
+  (5) 0.20, 0.35, 0.45;
+}
+probability ( ChronicToxicityInTheAquaticEnvironment | ClassificationGHS ) {
+  (1) 0.4, 0.3, 0.2, 0.1;
+  (2) 0.2, 0.4, 0.3, 0.1;
+  (3) 0.20, 0.25, 0.40, 0.15;
+  (4) 0.20, 0.20, 0.35, 0.25;
+  (5) 0.1, 0.2, 0.3, 0.4;
+}
+probability ( ClassificationGHS | Hazard ) {
+  (High) 0.5, 0.2, 0.1, 0.1, 0.1;
+  (Medium) 0.1, 0.2, 0.4, 0.2, 0.1;
+  (Low) 0.10, 0.10, 0.15, 0.25, 0.40;
+}
+probability ( CrystallineStructure | VariablesPhysicoChemical ) {
+  (High) 0.4, 0.6;
+  (Medium) 0.45, 0.55;
+  (Low) 0.6, 0.4;
+}
+probability ( Duration | Exposure ) {
+  (High) 0.2, 0.3, 0.5;
+  (Medium) 0.3, 0.4, 0.3;
+  (Low) 0.5, 0.3, 0.2;
+}
+probability ( DustFormation | Exposure ) {
+  (High) 0.8, 0.2;
+  (Medium) 0.6, 0.4;
+  (Low) 0.4, 0.6;
+}
+probability ( Exposure | Risk ) {
+  (High) 0.2, 0.3, 0.5;
+  (Medium) 0.2, 0.5, 0.3;
+  (Low) 0.5, 0.3, 0.2;
+}
+probability ( EyeIrritation | ClassificationGHS ) {
+  (1) 0.20, 0.35, 0.45;
+  (2) 0.20, 0.45, 0.35;
+  (3) 0.30, 0.35, 0.35;
+  (4) 0.4, 0.3, 0.3;
+  (5) 0.45, 0.35, 0.20;
+}
+probability ( EyesProtection | PersonalProtectiveEquipment ) {
+  (High) 0.1, 0.2, 0.3, 0.4;
+  (Medium) 0.15, 0.30, 0.35, 0.20;
+  (Low) 0.4, 0.3, 0.2, 0.1;
+}
+probability ( FootProtection | PersonalProtectiveEquipment ) {
+  (High) 0.2, 0.3, 0.5;
+  (Medium) 0.25, 0.35, 0.40;
+  (Low) 0.5, 0.3, 0.2;
+}
+probability ( Frequency | Exposure ) {
+  (High) 0.40, 0.25, 0.15, 0.10, 0.10;
+  (Medium) 0.20, 0.30, 0.20, 0.15, 0.15;
+  (Low) 0.10, 0.15, 0.20, 0.25, 0.30;
+}
+probability ( HandProtection | PersonalProtectiveEquipment ) {
+  (High) 0.1, 0.2, 0.3, 0.4;
+  (Medium) 0.15, 0.30, 0.35, 0.20;
+  (Low) 0.4, 0.3, 0.2, 0.1;
+}
+probability ( Hazard | Risk ) {
+  (High) 0.2, 0.3, 0.5;
+  (Medium) 0.2, 0.5, 0.3;
+  (Low) 0.5, 0.3, 0.2;
+}
+probability ( MedicalSurveillance | AdministrativeMeasures ) {
+  (High) 0.15, 0.30, 0.55;
+  (Medium) 0.25, 0.40, 0.35;
+  (Low) 0.55, 0.30, 0.15;
+}
+probability ( Morphology | VariablesPhysicoChemical ) {
+  (High) 0.45, 0.30, 0.25;
+  (Medium) 0.40, 0.35, 0.25;
+  (Low) 0.25, 0.30, 0.45;
+}
+probability ( OccupationalEnvironmentRiskProgram | AdministrativeMeasures ) {
+  (High) 0.15, 0.30, 0.55;
+  (Medium) 0.25, 0.40, 0.35;
+  (Low) 0.55, 0.30, 0.15;
+}
+probability ( PeriodicMaintenanceOfCPE | AdministrativeMeasures ) {
+  (High) 0.1, 0.3, 0.6;
+  (Medium) 0.20, 0.45, 0.35;
+  (Low) 0.6, 0.3, 0.1;
+}
+probability ( PersonalProtectiveEquipment | RiskControl ) {
+  (High) 0.2, 0.3, 0.5;
+  (Medium) 0.4, 0.3, 0.3;
+  (Low) 0.5, 0.3, 0.2;
+}
+probability ( PotentiallyCarcinogenic | ClassificationGHS ) {
+  (1) 0.6, 0.3, 0.1;
+  (2) 0.3, 0.6, 0.1;
+  (3) 0.25, 0.35, 0.40;
+  (4) 0.2, 0.3, 0.5;
+  (5) 0.15, 0.25, 0.60;
+}
+probability ( ProtectionByUsingCollectiveProtectiveEquipment | RiskControl ) {
+  (High) 0.50, 0.25, 0.15, 0.10;
+  (Medium) 0.35, 0.30, 0.20, 0.15;
+  (Low) 0.10, 0.15, 0.25, 0.50;
+}
+probability ( RespiratoryProtection | PersonalProtectiveEquipment ) {
+  (High) 0.1, 0.2, 0.7;
+  (Medium) 0.20, 0.45, 0.35;
+  (Low) 0.7, 0.2, 0.1;
+}
+probability ( RespiratoryProtectionProgram | AdministrativeMeasures ) {
+  (High) 0.1, 0.3, 0.6;
+  (Medium) 0.20, 0.45, 0.35;
+  (Low) 0.6, 0.3, 0.1;
+}
+probability ( RespiratorySensitization | ClassificationGHS ) {
+  (1) 0.5, 0.3, 0.2;
+  (2) 0.3, 0.5, 0.2;
+  (3) 0.35, 0.45, 0.20;
+  (4) 0.25, 0.35, 0.40;
+  (5) 0.2, 0.3, 0.5;
+}
+probability ( Risk ) {
+  table 0.4, 0.3, 0.3;
+}
+probability ( RiskControl | Risk ) {
+  (High) 0.7, 0.2, 0.1;
+  (Medium) 0.2, 0.5, 0.3;
+  (Low) 0.1, 0.2, 0.7;
+}
+probability ( RiskTrainingInvolvingNMs | AdministrativeMeasures ) {
+  (High) 0.4, 0.6;
+  (Medium) 0.45, 0.55;
+  (Low) 0.6, 0.4;
+}
+probability ( SizeOfAtLeastOneDimension | VariablesPhysicoChemical ) {
+  (High) 0.7, 0.3;
+  (Medium) 0.6, 0.4;
+  (Low) 0.3, 0.7;
+}
+probability ( SkinIrritation | ClassificationGHS ) {
+  (1) 0.4, 0.3, 0.2, 0.1;
+  (2) 0.2, 0.4, 0.3, 0.1;
+  (3) 0.20, 0.25, 0.40, 0.15;
+  (4) 0.20, 0.20, 0.35, 0.25;
+  (5) 0.1, 0.2, 0.3, 0.4;
+}
+probability ( SolubilityInWater | VariablesPhysicoChemical ) {
+  (High) 0.3, 0.7;
+  (Medium) 0.4, 0.6;
+  (Low) 0.7, 0.3;
+}
+probability ( StandardOperatingProcedureOfTask | AdministrativeMeasures ) {
+  (High) 0.4, 0.6;
+  (Medium) 0.45, 0.55;
+  (Low) 0.6, 0.4;
+}
+probability ( SurfaceArea | VariablesPhysicoChemical ) {
+  (High) 0.25, 0.30, 0.45;
+  (Medium) 0.25, 0.40, 0.35;
+  (Low) 0.55, 0.30, 0.15;
+}
+probability ( SurfaceChargeInSolution | VariablesPhysicoChemical ) {
+  (High) 0.6, 0.4;
+  (Medium) 0.55, 0.45;
+  (Low) 0.4, 0.6;
+}
+probability ( SurfaceModificationWithHydrophilicGroups | VariablesPhysicoChemical ) {
+  (High) 0.4, 0.6;
+  (Medium) 0.45, 0.55;
+  (Low) 0.6, 0.4;
+}
+probability ( SuspensionStability | VariablesPhysicoChemical ) {
+  (High) 0.4, 0.6;
+  (Medium) 0.45, 0.55;
+  (Low) 0.6, 0.4;
+}
+probability ( VariablesPhysicoChemical | Hazard ) {
+  (High) 0.2, 0.3, 0.5;
+  (Medium) 0.25, 0.50, 0.25;
+  (Low) 0.5, 0.3, 0.2;
+}

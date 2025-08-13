@@ -1,0 +1,56 @@
+class,gender,eyebrow,collar,sub.caudal,border
+2.0,male,pronounced,none,white,none
+2.0,female,pronounced,none,white,none
+1.0,female,poor pronounced,longdashed,white,none
+2.0,male,pronounced,none,white,none
+1.0,female,poor pronounced,none,black,none
+2.0,male,pronounced,none,white,none
+2.0,female,pronounced,none,white,none
+1.0,male,poor pronounced,dashed,white,few
+2.0,female,pronounced,none,white,none
+1.0,male,poor pronounced,longdashed,black & white,none
+1.0,female,pronounced,none,white,none
+1.0,male,poor pronounced,dashed,white,none
+1.0,male,pronounced,longdashed,white,none
+2.0,female,pronounced,none,white,none
+2.0,female,pronounced,none,white,none
+2.0,female,pronounced,none,white,none
+1.0,male,pronounced,longdashed,white,none
+1.0,female,poor pronounced,longdashed,black,none
+1.0,male,none,none,white,none
+1.0,male,none,none,white,none
+1.0,female,poor pronounced,dashed,white,few
+2.0,male,pronounced,none,white,none
+2.0,male,very pronounced,none,white,none
+2.0,female,very pronounced,none,white,few
+2.0,male,pronounced,none,white,none
+1.0,female,poor pronounced,longdashed,black,none
+1.0,male,poor pronounced,longdashed,black & white,none
+1.0,male,pronounced,longdashed,white,none
+2.0,male,pronounced,none,white,none
+1.0,male,poor pronounced,dashed,black & white,none
+2.0,female,pronounced,none,white,none
+1.0,male,poor pronounced,dashed,black,none
+2.0,female,pronounced,none,white,none
+1.0,female,poor pronounced,continuous,black,none
+1.0,male,pronounced,longdashed,white,none
+2.0,female,very pronounced,none,white,none
+2.0,female,pronounced,none,white,none
+2.0,female,pronounced,none,white,none
+1.0,female,poor pronounced,dashed,white,none
+2.0,female,pronounced,none,white,none
+1.0,female,poor pronounced,dashed,white,none
+1.0,female,none,longdashed,black,none
+2.0,male,pronounced,none,white,none
+2.0,female,pronounced,none,white,none
+2.0,male,pronounced,none,white,none
+1.0,male,poor pronounced,dashed,black,none
+1.0,female,none,dashed,white,none
+1.0,female,poor pronounced,dashed,black & white,none
+2.0,female,pronounced,none,white,none
+2.0,male,pronounced,none,white,none
+2.0,male,pronounced,none,white,none
+1.0,male,pronounced,longdashed,white,none
+1.0,male,poor pronounced,longdashed,black,none
+2.0,male,pronounced,none,white,none
+2.0,female,pronounced,none,white,none

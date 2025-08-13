@@ -1,0 +1,107 @@
+network unknown {
+}
+variable C11 {
+  type discrete [ 2 ] { FM S present, FM S absent };
+}
+variable C12 {
+  type discrete [ 2 ] { FM S present, FM S absent };
+}
+variable C9 {
+  type discrete [ 2 ] { FM S present, FM S absent };
+}
+variable C7 {
+  type discrete [ 2 ] { FM S present, FM S absent };
+}
+variable C8 {
+  type discrete [ 2 ] { FM S present, FM S absent };
+}
+variable C6 {
+  type discrete [ 2 ] { FM S present, FM S absent };
+}
+variable C5 {
+  type discrete [ 2 ] { FM S present, FM S absent };
+}
+variable C10 {
+  type discrete [ 2 ] { FM S present, FM S absent };
+}
+variable C4 {
+  type discrete [ 2 ] { FM S present, FM S absent };
+}
+variable C1 {
+  type discrete [ 2 ] { Hp, Hd };
+}
+variable C3 {
+  type discrete [ 2 ] { True, False };
+}
+variable C2 {
+  type discrete [ 2 ] { True, False };
+}
+probability ( C11 | C6, C9 ) {
+  (FM S present, FM S present) 1.0, 0.0;
+  (FM S absent, FM S present) 1.0, 0.0;
+  (FM S present, FM S absent) 1.0, 0.0;
+  (FM S absent, FM S absent) 0.0, 1.0;
+}
+probability ( C12 | C5, C8 ) {
+  (FM S present, FM S present) 1.0, 0.0;
+  (FM S absent, FM S present) 1.0, 0.0;
+  (FM S present, FM S absent) 1.0, 0.0;
+  (FM S absent, FM S absent) 0.0, 1.0;
+}
+probability ( C9 | C3, C7, C8 ) {
+  (True, FM S present, FM S present) 0.52, 0.48;
+  (False, FM S present, FM S present) 0.0, 1.0;
+  (True, FM S absent, FM S present) 0.5, 0.5;
+  (False, FM S absent, FM S present) 0.0, 1.0;
+  (True, FM S present, FM S absent) 0.666667, 0.333333;
+  (False, FM S present, FM S absent) 0.0, 1.0;
+  (True, FM S absent, FM S absent) 0.5, 0.5;
+  (False, FM S absent, FM S absent) 0.0, 1.0;
+}
+probability ( C7 | C3 ) {
+  (True) 0.96153848, 0.03846152;
+  (False) 0.0, 1.0;
+}
+probability ( C8 | C3, C7 ) {
+  (True, FM S present) 0.92307691, 0.07692309;
+  (False, FM S present) 0.0, 1.0;
+  (True, FM S absent) 0.5, 0.5;
+  (False, FM S absent) 0.0, 1.0;
+}
+probability ( C6 | C2, C4, C5 ) {
+  (True, FM S present, FM S present) 0.117647, 0.882353;
+  (False, FM S present, FM S present) 0.0, 1.0;
+  (True, FM S absent, FM S present) 0.5, 0.5;
+  (False, FM S absent, FM S present) 0.0, 1.0;
+  (True, FM S present, FM S absent) 0.09090909, 0.90909091;
+  (False, FM S present, FM S absent) 0.0, 1.0;
+  (True, FM S absent, FM S absent) 0.5, 0.5;
+  (False, FM S absent, FM S absent) 0.0, 1.0;
+}
+probability ( C5 | C2, C4 ) {
+  (True, FM S present) 0.615385, 0.384615;
+  (False, FM S present) 0.0, 1.0;
+  (True, FM S absent) 0.5, 0.5;
+  (False, FM S absent) 0.0, 1.0;
+}
+probability ( C10 | C4, C7 ) {
+  (FM S present, FM S present) 1.0, 0.0;
+  (FM S absent, FM S present) 1.0, 0.0;
+  (FM S present, FM S absent) 1.0, 0.0;
+  (FM S absent, FM S absent) 0.0, 1.0;
+}
+probability ( C4 | C2 ) {
+  (True) 0.96153848, 0.03846152;
+  (False) 0.0, 1.0;
+}
+probability ( C1 ) {
+  table 0.5, 0.5;
+}
+probability ( C3 | C1 ) {
+  (Hp) 0.0, 1.0;
+  (Hd) 1.0, 0.0;
+}
+probability ( C2 | C1 ) {
+  (Hp) 1.0, 0.0;
+  (Hd) 0.0, 1.0;
+}

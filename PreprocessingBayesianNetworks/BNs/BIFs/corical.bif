@@ -1,0 +1,297 @@
+network unknown {
+}
+variable Age {
+  type discrete [ 8 ] { 0-9, 10-19, 20-29, 30-39, 40-49, 50-59, 60-69, 70+ };
+}
+variable AZVaccineDoses {
+  type discrete [ 3 ] { None, One, Two };
+}
+variable BackgroundCSVTOver6Weeks {
+  type discrete [ 2 ] { Yes, No };
+}
+variable BackgroundPVTOver6Weeks {
+  type discrete [ 2 ] { Yes, No };
+}
+variable Covid19AssociatedCSVT {
+  type discrete [ 2 ] { Yes, No };
+}
+variable Covid19AssociatedPVT {
+  type discrete [ 2 ] { Yes, No };
+}
+variable DieFromBackgroundCSVT {
+  type discrete [ 2 ] { Yes, No };
+}
+variable DieFromBackgroundPVT {
+  type discrete [ 2 ] { Yes, No };
+}
+variable DieFromCovid19 {
+  type discrete [ 2 ] { Yes, No };
+}
+variable DieFromCovid19AssociatedCSVT {
+  type discrete [ 2 ] { Yes, No };
+}
+variable DieFromCovid19AssociatedPVT {
+  type discrete [ 2 ] { Yes, No };
+}
+variable DieFromVaccineAssociatedTTS {
+  type discrete [ 2 ] { Yes, No };
+}
+variable IntensityOfCommunityTransmission {
+  type discrete [ 10 ] { None, ATAGI Low, ATAGI Med, ATAGI High, One Percent, Two Percent, NSW 200 Daily, NSW 1000 Daily, VIC 1000 Daily, QLD 1000 Daily };
+}
+variable RiskOfSymptomaticInfection {
+  type discrete [ 2 ] { Yes, No };
+}
+variable RiskOfSymptomaticInfectionUnderCurrentTransmissionAndVaccinationStatus {
+  type discrete [ 2 ] { Yes, No };
+}
+variable SARSCoV2Variant {
+  type discrete [ 2 ] { Alpha Wild, Delta };
+}
+variable Sex {
+  type discrete [ 2 ] { Male, Female };
+}
+variable VaccineAssociatedTTS {
+  type discrete [ 2 ] { Yes, No };
+}
+variable VaccineEffectivenessAgainstDeathIfInfected {
+  type discrete [ 2 ] { Effective, Not Effective };
+}
+variable VaccineEffectivenessAgainstSymptomaticInfection {
+  type discrete [ 2 ] { Effective, Not Effective };
+}
+probability ( Age ) {
+  table 0.1233831, 0.1233831, 0.1402985, 0.1452736, 0.1273632, 0.1213930, 0.1044776, 0.1144279;
+}
+probability ( AZVaccineDoses ) {
+  table 0.30, 0.35, 0.35;
+}
+probability ( BackgroundCSVTOver6Weeks | Age ) {
+  (0-9) 0.00000038, 0.99999962;
+  (10-19) 0.00000038, 0.99999962;
+  (20-29) 0.00000064, 0.99999936;
+  (30-39) 0.00000064, 0.99999936;
+  (40-49) 0.00000064, 0.99999936;
+  (50-59) 0.00000075, 0.99999925;
+  (60-69) 0.00000075, 0.99999925;
+  (70+) 0.00000073, 0.99999927;
+}
+probability ( BackgroundPVTOver6Weeks | Age ) {
+  (0-9) 0.0, 1.0;
+  (10-19) 0.0, 1.0;
+  (20-29) 0.0000002, 0.9999998;
+  (30-39) 0.00000026, 0.99999974;
+  (40-49) 0.00000056, 0.99999944;
+  (50-59) 0.00000091, 0.99999909;
+  (60-69) 0.00000176, 0.99999824;
+  (70+) 0.00000196, 0.99999804;
+}
+probability ( Covid19AssociatedCSVT | RiskOfSymptomaticInfectionUnderCurrentTransmissionAndVaccinationStatus, Sex ) {
+  (Yes, Male) 0.0000288732, 0.9999711268;
+  (No, Male) 0.0, 1.0;
+  (Yes, Female) 0.0000541969, 0.9999458031;
+  (No, Female) 0.0, 1.0;
+}
+probability ( Covid19AssociatedPVT | RiskOfSymptomaticInfectionUnderCurrentTransmissionAndVaccinationStatus, Sex ) {
+  (Yes, Male) 0.000482596, 0.999517404;
+  (No, Male) 0.0, 1.0;
+  (Yes, Female) 0.000318407, 0.999681593;
+  (No, Female) 0.0, 1.0;
+}
+probability ( DieFromBackgroundCSVT | BackgroundCSVTOver6Weeks ) {
+  (Yes) 0.07, 0.93;
+  (No) 0.0, 1.0;
+}
+probability ( DieFromBackgroundPVT | BackgroundPVTOver6Weeks ) {
+  (Yes) 0.27, 0.73;
+  (No) 0.0, 1.0;
+}
+probability ( DieFromCovid19 | Age, RiskOfSymptomaticInfectionUnderCurrentTransmissionAndVaccinationStatus, Sex, VaccineEffectivenessAgainstDeathIfInfected ) {
+  (0-9, Yes, Male, Effective) 0.0, 1.0;
+  (10-19, Yes, Male, Effective) 0.0, 1.0;
+  (20-29, Yes, Male, Effective) 0.0, 1.0;
+  (30-39, Yes, Male, Effective) 0.0, 1.0;
+  (40-49, Yes, Male, Effective) 0.0, 1.0;
+  (50-59, Yes, Male, Effective) 0.0, 1.0;
+  (60-69, Yes, Male, Effective) 0.0, 1.0;
+  (70+, Yes, Male, Effective) 0.0, 1.0;
+  (0-9, No, Male, Effective) 0.0, 1.0;
+  (10-19, No, Male, Effective) 0.0, 1.0;
+  (20-29, No, Male, Effective) 0.0, 1.0;
+  (30-39, No, Male, Effective) 0.0, 1.0;
+  (40-49, No, Male, Effective) 0.0, 1.0;
+  (50-59, No, Male, Effective) 0.0, 1.0;
+  (60-69, No, Male, Effective) 0.0, 1.0;
+  (70+, No, Male, Effective) 0.0, 1.0;
+  (0-9, Yes, Female, Effective) 0.0, 1.0;
+  (10-19, Yes, Female, Effective) 0.0, 1.0;
+  (20-29, Yes, Female, Effective) 0.0, 1.0;
+  (30-39, Yes, Female, Effective) 0.0, 1.0;
+  (40-49, Yes, Female, Effective) 0.0, 1.0;
+  (50-59, Yes, Female, Effective) 0.0, 1.0;
+  (60-69, Yes, Female, Effective) 0.0, 1.0;
+  (70+, Yes, Female, Effective) 0.0, 1.0;
+  (0-9, No, Female, Effective) 0.0, 1.0;
+  (10-19, No, Female, Effective) 0.0, 1.0;
+  (20-29, No, Female, Effective) 0.0, 1.0;
+  (30-39, No, Female, Effective) 0.0, 1.0;
+  (40-49, No, Female, Effective) 0.0, 1.0;
+  (50-59, No, Female, Effective) 0.0, 1.0;
+  (60-69, No, Female, Effective) 0.0, 1.0;
+  (70+, No, Female, Effective) 0.0, 1.0;
+  (0-9, Yes, Male, Not Effective) 0.0, 1.0;
+  (10-19, Yes, Male, Not Effective) 0.00030321, 0.99969679;
+  (20-29, Yes, Male, Not Effective) 0.00032457, 0.99967543;
+  (30-39, Yes, Male, Not Effective) 0.00080402, 0.99919598;
+  (40-49, Yes, Male, Not Effective) 0.00086505, 0.99913495;
+  (50-59, Yes, Male, Not Effective) 0.00374787, 0.99625213;
+  (60-69, Yes, Male, Not Effective) 0.01879699, 0.98120301;
+  (70+, Yes, Male, Not Effective) 0.2174339, 0.7825661;
+  (0-9, No, Male, Not Effective) 0.0, 1.0;
+  (10-19, No, Male, Not Effective) 0.0, 1.0;
+  (20-29, No, Male, Not Effective) 0.0, 1.0;
+  (30-39, No, Male, Not Effective) 0.0, 1.0;
+  (40-49, No, Male, Not Effective) 0.0, 1.0;
+  (50-59, No, Male, Not Effective) 0.0, 1.0;
+  (60-69, No, Male, Not Effective) 0.0, 1.0;
+  (70+, No, Male, Not Effective) 0.0, 1.0;
+  (0-9, Yes, Female, Not Effective) 0.0, 1.0;
+  (10-19, Yes, Female, Not Effective) 0.0, 1.0;
+  (20-29, Yes, Female, Not Effective) 0.0, 1.0;
+  (30-39, Yes, Female, Not Effective) 0.00044336, 0.99955664;
+  (40-49, Yes, Female, Not Effective) 0.00062933, 0.99937067;
+  (50-59, Yes, Female, Not Effective) 0.00285919, 0.99714081;
+  (60-69, Yes, Female, Not Effective) 0.00806916, 0.99193084;
+  (70+, Yes, Female, Not Effective) 0.1910828, 0.8089172;
+  (0-9, No, Female, Not Effective) 0.0, 1.0;
+  (10-19, No, Female, Not Effective) 0.0, 1.0;
+  (20-29, No, Female, Not Effective) 0.0, 1.0;
+  (30-39, No, Female, Not Effective) 0.0, 1.0;
+  (40-49, No, Female, Not Effective) 0.0, 1.0;
+  (50-59, No, Female, Not Effective) 0.0, 1.0;
+  (60-69, No, Female, Not Effective) 0.0, 1.0;
+  (70+, No, Female, Not Effective) 0.0, 1.0;
+}
+probability ( DieFromCovid19AssociatedCSVT | Covid19AssociatedCSVT ) {
+  (Yes) 0.174, 0.826;
+  (No) 0.0, 1.0;
+}
+probability ( DieFromCovid19AssociatedPVT | Covid19AssociatedPVT ) {
+  (Yes) 0.1981982, 0.8018018;
+  (No) 0.0, 1.0;
+}
+probability ( DieFromVaccineAssociatedTTS | VaccineAssociatedTTS ) {
+  (Yes) 0.05, 0.95;
+  (No) 0.0, 1.0;
+}
+probability ( IntensityOfCommunityTransmission ) {
+  table 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1;
+}
+probability ( RiskOfSymptomaticInfection | Age, SARSCoV2Variant ) {
+  (0-9, Alpha Wild) 0.0416611, 0.9583389;
+  (10-19, Alpha Wild) 0.0702759, 0.9297241;
+  (20-29, Alpha Wild) 0.1589055, 0.8410945;
+  (30-39, Alpha Wild) 0.1212599, 0.8787401;
+  (40-49, Alpha Wild) 0.1005435, 0.8994565;
+  (50-59, Alpha Wild) 0.0977633, 0.9022367;
+  (60-69, Alpha Wild) 0.0812794, 0.9187206;
+  (70+, Alpha Wild) 0.1126984, 0.8873016;
+  (0-9, Delta) 0.09182884, 0.90817116;
+  (10-19, Delta) 0.1423347, 0.8576653;
+  (20-29, Delta) 0.1540069, 0.8459931;
+  (30-39, Delta) 0.1131176, 0.8868824;
+  (40-49, Delta) 0.09119044, 0.90880956;
+  (50-59, Delta) 0.09033166, 0.90966834;
+  (60-69, Delta) 0.05484361, 0.94515639;
+  (70+, Delta) 0.04305606, 0.95694394;
+}
+probability ( RiskOfSymptomaticInfectionUnderCurrentTransmissionAndVaccinationStatus | IntensityOfCommunityTransmission, RiskOfSymptomaticInfection, VaccineEffectivenessAgainstSymptomaticInfection ) {
+  (None, Yes, Effective) 0.0, 1.0;
+  (ATAGI Low, Yes, Effective) 0.0, 1.0;
+  (ATAGI Med, Yes, Effective) 0.0, 1.0;
+  (ATAGI High, Yes, Effective) 0.0, 1.0;
+  (One Percent, Yes, Effective) 0.0, 1.0;
+  (Two Percent, Yes, Effective) 0.0, 1.0;
+  (NSW 200 Daily, Yes, Effective) 0.0, 1.0;
+  (NSW 1000 Daily, Yes, Effective) 0.0, 1.0;
+  (VIC 1000 Daily, Yes, Effective) 0.0, 1.0;
+  (QLD 1000 Daily, Yes, Effective) 0.0, 1.0;
+  (None, No, Effective) 0.0, 1.0;
+  (ATAGI Low, No, Effective) 0.0, 1.0;
+  (ATAGI Med, No, Effective) 0.0, 1.0;
+  (ATAGI High, No, Effective) 0.0, 1.0;
+  (One Percent, No, Effective) 0.0, 1.0;
+  (Two Percent, No, Effective) 0.0, 1.0;
+  (NSW 200 Daily, No, Effective) 0.0, 1.0;
+  (NSW 1000 Daily, No, Effective) 0.0, 1.0;
+  (VIC 1000 Daily, No, Effective) 0.0, 1.0;
+  (QLD 1000 Daily, No, Effective) 0.0, 1.0;
+  (None, Yes, Not Effective) 0.0, 1.0;
+  (ATAGI Low, Yes, Not Effective) 0.00471, 0.99529;
+  (ATAGI Med, Yes, Not Effective) 0.04469, 0.95531;
+  (ATAGI High, Yes, Not Effective) 0.5759, 0.4241;
+  (One Percent, Yes, Not Effective) 0.1, 0.9;
+  (Two Percent, Yes, Not Effective) 0.2, 0.8;
+  (NSW 200 Daily, Yes, Not Effective) 0.04455, 0.95545;
+  (NSW 1000 Daily, Yes, Not Effective) 0.22276, 0.77724;
+  (VIC 1000 Daily, Yes, Not Effective) 0.27289, 0.72711;
+  (QLD 1000 Daily, Yes, Not Effective) 0.35067, 0.64933;
+  (None, No, Not Effective) 0.0, 1.0;
+  (ATAGI Low, No, Not Effective) 0.0, 1.0;
+  (ATAGI Med, No, Not Effective) 0.0, 1.0;
+  (ATAGI High, No, Not Effective) 0.0, 1.0;
+  (One Percent, No, Not Effective) 0.0, 1.0;
+  (Two Percent, No, Not Effective) 0.0, 1.0;
+  (NSW 200 Daily, No, Not Effective) 0.0, 1.0;
+  (NSW 1000 Daily, No, Not Effective) 0.0, 1.0;
+  (VIC 1000 Daily, No, Not Effective) 0.0, 1.0;
+  (QLD 1000 Daily, No, Not Effective) 0.0, 1.0;
+}
+probability ( SARSCoV2Variant ) {
+  table 0.05, 0.95;
+}
+probability ( Sex ) {
+  table 0.5, 0.5;
+}
+probability ( VaccineAssociatedTTS | Age, AZVaccineDoses ) {
+  (0-9, None) 0.0, 1.0;
+  (10-19, None) 0.0, 1.0;
+  (20-29, None) 0.0, 1.0;
+  (30-39, None) 0.0, 1.0;
+  (40-49, None) 0.0, 1.0;
+  (50-59, None) 0.0, 1.0;
+  (60-69, None) 0.0, 1.0;
+  (70+, None) 0.0, 1.0;
+  (0-9, One) 0.000025, 0.999975;
+  (10-19, One) 0.000025, 0.999975;
+  (20-29, One) 0.000025, 0.999975;
+  (30-39, One) 0.000025, 0.999975;
+  (40-49, One) 0.000025, 0.999975;
+  (50-59, One) 0.000027, 0.999973;
+  (60-69, One) 0.000016, 0.999984;
+  (70+, One) 0.0000185, 0.9999815;
+  (0-9, Two) 0.0000018, 0.9999982;
+  (10-19, Two) 0.0000018, 0.9999982;
+  (20-29, Two) 0.0000018, 0.9999982;
+  (30-39, Two) 0.0000018, 0.9999982;
+  (40-49, Two) 0.0000018, 0.9999982;
+  (50-59, Two) 0.0000018, 0.9999982;
+  (60-69, Two) 0.0000018, 0.9999982;
+  (70+, Two) 0.0000018, 0.9999982;
+}
+probability ( VaccineEffectivenessAgainstDeathIfInfected | AZVaccineDoses, SARSCoV2Variant ) {
+  (None, Alpha Wild) 0.0, 1.0;
+  (One, Alpha Wild) 0.8, 0.2;
+  (Two, Alpha Wild) 0.95, 0.05;
+  (None, Delta) 0.0, 1.0;
+  (One, Delta) 0.69, 0.31;
+  (Two, Delta) 0.9, 0.1;
+}
+probability ( VaccineEffectivenessAgainstSymptomaticInfection | AZVaccineDoses, SARSCoV2Variant ) {
+  (None, Alpha Wild) 0.0, 1.0;
+  (One, Alpha Wild) 0.6, 0.4;
+  (Two, Alpha Wild) 0.8, 0.2;
+  (None, Delta) 0.0, 1.0;
+  (One, Delta) 0.3333333, 0.6666667;
+  (Two, Delta) 0.61, 0.39;
+}

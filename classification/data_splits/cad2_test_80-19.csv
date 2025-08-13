@@ -1,0 +1,15 @@
+Sex,AngPec,AMI,QWave,QWavecode,STcode,STchange,SuffHeartF,Hypertrophi,Hyperchol,Smoker,Inherit,Heartfail,CAD
+female,none,notcertain,no,usable,usable,no,yes,no,yes,yes,unknown,no,no
+male,none,notcertain,no,usable,nonusable,no,no,no,no,yes,unknown,no,no
+female,atypical,definite,yes,usable,nonusable,no,no,no,unknown,yes,no,yes,yes
+male,none,notcertain,no,nonusable,nonusable,no,no,no,yes,yes,unknown,yes,no
+male,typical,notcertain,no,usable,usable,no,yes,no,no,yes,unknown,no,no
+male,none,notcertain,yes,usable,nonusable,no,no,no,no,yes,unknown,yes,no
+male,typical,notcertain,no,usable,usable,yes,yes,yes,yes,yes,unknown,no,yes
+male,typical,notcertain,yes,usable,usable,yes,yes,no,unknown,yes,yes,no,yes
+male,none,notcertain,yes,usable,usable,no,no,yes,unknown,no,unknown,no,no
+male,typical,notcertain,no,usable,usable,yes,no,no,no,yes,unknown,no,yes
+male,none,notcertain,no,usable,usable,no,no,yes,no,unknown,unknown,no,no
+male,none,notcertain,yes,usable,usable,yes,yes,yes,yes,yes,unknown,no,no
+female,typical,notcertain,no,usable,nonusable,no,no,no,yes,no,unknown,yes,no
+male,atypical,definite,yes,usable,nonusable,no,no,yes,no,yes,unknown,no,yes
