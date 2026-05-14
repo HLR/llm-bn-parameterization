@@ -1,4 +1,4 @@
-# Extracting Probabilistic Knowledge from Large Language Models for Bayesian Network Parameterization
+# Extracting Probabilistic Knowledge from Large Language Models for Bayesian Network Parameterization (TMLR 2026)
 
 This repository accompanies the paper:
 “Extracting Probabilistic Knowledge from Large Language Models for Bayesian Network Parameterization”
